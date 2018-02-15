@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const conf = require('../../config');
+const config = require('../../config');
 const { promisify } = require('util');
 const pug = require('pug');
 const mime = require('../mime');
@@ -11,10 +11,10 @@ const isFresh = require('../cache');
 const stat = promisify(fs.stat);
 const readdir = promisify(fs.readdir);
 
-const htmlGenerator = pug.compileFile(path.resolve(conf.root, 'src/template/index.pug'));
+const htmlGenerator = pug.compileFile(path.resolve(config.root, 'src/template/index.pug'));
 
 
-module.exports = async function route(req, res) {
+module.exports = async function route(req, res, conf) {
   try {
     const filePath = path.join(conf.static, req.url);
     const stats = await stat(filePath);
