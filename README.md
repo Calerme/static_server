@@ -2,12 +2,6 @@
 
 static_server 是一个简单的 NodeJS Static Web Server。
 
-# 安装
-
-```
-npm install -g static_server
-```
-
 # 使用方法
 
 ```
